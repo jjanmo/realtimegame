@@ -1,0 +1,1 @@
+@-webkit-keyframes changeBg{0%{background-color:#1e90ff}to{background-color:tomato}}@keyframes changeBg{0%{background-color:#1e90ff}to{background-color:tomato}}h1{background-color:#8a2be2}body{color:#eee;-webkit-animation:changeBg 2s ease-in-out forwards;animation:changeBg 2s ease-in-out forwards}

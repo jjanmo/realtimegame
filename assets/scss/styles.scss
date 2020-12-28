@@ -1,0 +1,18 @@
+@import 'body';
+
+$beforeColor: dodgerblue;
+$afterColor: tomato;
+
+@keyframes changeBg {
+    from {
+        background-color: $beforeColor;
+    }
+    to {
+        background-color: $afterColor;
+    }
+}
+
+body {
+    color: #eee;
+    animation: changeBg 2s ease-in-out forwards;
+}
