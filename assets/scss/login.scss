@@ -1,0 +1,47 @@
+.wrapper{
+    position : absolute;
+    top : 40%;
+    left : 50%;
+    transform : translate(-50%, -50%);
+    width : 40%;
+    background-color : #eee;
+    & h1 {
+        text-align : center;
+        text-transform : uppercase;
+        margin : 1rem 0;
+        font-size : 1.5rem;
+        color : #00b894;
+        font-weight : bold;
+    }
+    & form{
+        display : flex;
+        flex-direction : column;
+        justifyContents : center;
+        alignItems : center;
+        & input{
+            margin : 0.5rem auto;
+            font-size : 1.2rem;
+            padding : 0.4rem 0.6rem;
+            width : 50%;
+            &:last-child{
+                all : unset;
+                width : 50%;
+                color : white;
+                background-color : #00b894;
+                border : 1px solid #00b894;
+                outline : none;
+                font-size : 1.2rem;
+                font-weight : bold;
+                text-align : center;
+                cursor: pointer;
+                padding : 0.6rem;
+                margin : 1rem auto;
+                transition : 0.2s;
+                &:active{
+                    transform : scale(0.99);
+                }
+                
+            }
+        }
+    }
+}

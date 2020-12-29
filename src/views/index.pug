@@ -6,6 +6,11 @@ html(lang="en")
         link(rel="stylesheet", href="/styles/styles.css")
         title=title
     body
-        h1=message
+        .wrapper
+            h1 Fake CatchMind
+            form(action="")
+                input(type="text", name="nickname" placeholder="아이디" autocomplete="off")
+                input(type="password", name="password" placeholder="비밀번호")
+                input(type="submit", value="LOGIN")
         script(src="/socket.io/socket.io.js")
         script(src="/js/main.js")

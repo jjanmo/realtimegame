@@ -4,7 +4,7 @@ import logger from 'morgan';
 import path from 'path';
 
 const app = express();
-const port = 4000;
+const port = 3000;
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
