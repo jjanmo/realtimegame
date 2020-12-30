@@ -1,21 +1,13 @@
-import mysql from 'mysql';
+import dotenv from 'dotenv';
 
-// const databaseInfo
-//https://junspapa-itdev.tistory.com/9
+dotenv.config();
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    port: '3306',
-    user: 'jjanmo',
-    password: 'jjanmo',
-    database: 'users',
-});
+const dbConfig = {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+};
 
-connection.connect();
-
-connection.query('select * from users', (error, rows, fields) => {
-    if (error) console.log(error);
-    console.log(('user info : ', rows));
-});
-
-connection.end();
+export default dbConfig;
