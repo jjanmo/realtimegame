@@ -1,0 +1,11 @@
+extends ./layout/main.pug
+
+block content
+    .login_wrapper
+        h1 Fake CatchMind
+        form(action="post")
+            input(type="text", name="nickname" placeholder="아이디" autocomplete="off")
+            input(type="password", name="password" placeholder="비밀번호")
+            input(type="submit", value="LOGIN")
+        a(href="/user/join") 회원가입
+

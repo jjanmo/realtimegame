@@ -1,4 +1,4 @@
-.login_wrapper {
+.join_wrapper {
     position: absolute;
     top: 40%;
     left: 50%;
@@ -10,7 +10,7 @@
         text-transform: uppercase;
         margin: 1rem 0;
         font-size: 1.5rem;
-        color: #00b894;
+        color: #0984e3;
         font-weight: bold;
     }
     & form {
@@ -27,8 +27,8 @@
                 all: unset;
                 width: 50%;
                 color: white;
-                background-color: #00b894;
-                border: 1px solid #00b894;
+                background-color: #0984e3;
+                border: 1px solid #0984e3;
                 outline: none;
                 font-size: 1.2rem;
                 font-weight: bold;
