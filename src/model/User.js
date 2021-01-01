@@ -1,30 +1,21 @@
-import mysql from 'mysql2';
+import mysql from 'mysql2/promise';
 import dbConfig from '../config/db.config';
 
-// https://medium.com/@moralmk/node-js-mysql-and-promises-6309f3915d37
-
-const connection = mysql.createConnection(dbConfig);
-connection.connect();
+const connection = mysql.createPool(dbConfig);
 
 const User = {
-    create: (newUser) => {
+    create: async (newUser) => {
         const { nickname, password } = newUser;
-        connection.query(`insert into users (nickname, password) values ('${nickname}', '${password}')`, (error, results) => {
-            if (error) throw error;
-            return results;
-        });
+        const result = await connection.query(`insert into users (nickname, password) values ('${nickname}', '${password}')`);
+        return result;
     },
-    findByName: (name) => {
-        connection.query(`select * from users where nickname='${name}'`, (error, results) => {
-            if (error) throw error;
-            return results;
-        });
+    findByName: async (name) => {
+        const result = await connection.query(`select * from users where nickname='${name}'`);
+        return result;
     },
-    findAllUsers: () => {
-        connection.query('select * from users', (error, results) => {
-            if (error) throw error;
-            return results;
-        });
+    findAllUsers: async () => {
+        const result = await connection.query('select * from users');
+        return result;
     },
 };
 
