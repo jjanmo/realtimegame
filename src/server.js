@@ -4,6 +4,7 @@ import logger from 'morgan';
 import path from 'path';
 import homeRouter from './routers/homeRouter';
 import userRouter from './routers/userRouter';
+import socketController from './controllers/socketController';
 
 const app = express();
 const port = 4000;
@@ -21,15 +22,4 @@ const server = app.listen(port, () => console.log(`✅ App listening at http://l
 
 const io = socketIO(server);
 
-io.on('connection', (socket) => {
-    socket.on('newMessage', ({ message }) => {
-        socket.broadcast.emit('broadcastMessage', {
-            message,
-            nickname: socket.nickname || 'Anonymous',
-        });
-    });
-
-    socket.on('setNickname', ({ nickname }) => {
-        socket.nickname = nickname;
-    });
-});
+io.on('connection', (socket) => socketController(socket));
