@@ -8,13 +8,15 @@ const $message = document.querySelector('.login_message');
 
 const nickname = localStorage.getItem('nickname');
 const password = localStorage.getItem('password');
+const NICKNAME = 'nickname';
+const PASSWORD = 'password';
 
 function setNickname(nickname) {
-    localStorage.setItem('nickname', nickname);
+    localStorage.setItem(NICKNAME, nickname);
 }
 
 function setPassword(password) {
-    localStorage.setItem('password', password);
+    localStorage.setItem(PASSWORD, password);
 }
 
 function getInputValue() {
@@ -25,6 +27,11 @@ function getInputValue() {
         nickname,
         password,
     };
+}
+
+function connectSocket(nickname) {
+    window.socket = io('/');
+    window.socket.emit(window.events.setNickname, { nickname });
 }
 
 function handleLogin(e) {
@@ -40,6 +47,7 @@ function handleLogin(e) {
         setPassword(inputObj.password);
     }
 
+    connectSocket(inputObj.nickname);
     $loginContainer.classList.add('hidden');
     $gameboardContainer.classList.remove('hidden');
 }
