@@ -2,10 +2,9 @@ import express from 'express';
 import socketIO from 'socket.io';
 import logger from 'morgan';
 import path from 'path';
-import homeRouter from './routers/homeRouter';
-import userRouter from './routers/userRouter';
 import socketController from './controllers/socketController';
 import dotenv from 'dotenv';
+import events from './events';
 
 dotenv.config();
 
@@ -18,8 +17,10 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/', homeRouter);
-app.use('/user', userRouter);
+// TODO REFACTORING : add router
+// app.use('/', homeRouter);
+// app.use('/user', userRouter);
+app.get('/', (req, res) => res.render('home', { events: JSON.stringify(events) }));
 
 const server = app.listen(PORT, () => console.log(`✅ App listening at http://localhost:${PORT}`));
 

@@ -1,13 +1,12 @@
 extends ./layout/main.pug
 
 block content
-    .login_wrapper
+    .login_container
         h1 Fake CatchMind
-        form(action="/login" method="post")
-            input(type="text", name="nickname" placeholder="Nickname" autocomplete="off")
-            input(type="password", name="password" placeholder="Password")
-            input(type="submit", value="LOGIN")
-        a(href="/join") JOIN
-
-        div.login_message=message
-
+        form.login_form
+            input.login_nickname(type="text", name="nickname" placeholder="Nickname" autocomplete="off")
+            input.login_password(type="password", name="password" placeholder="Password")
+            input.login_button(type="submit" value="LOGIN")
+        .login_message
+    .gameboard_container.hidden
+        div this is game board!!

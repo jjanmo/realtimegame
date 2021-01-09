@@ -1,8 +1,12 @@
 @import 'reset';
 @import 'login';
-@import 'join';
+@import 'game';
 
 body {
-    font-family : 'Roboto', sans-serif;
-    background-color : #eee;
+    font-family: 'Roboto', sans-serif;
+    background-color: #eee;
+}
+
+.hidden {
+    display: none;
 }
